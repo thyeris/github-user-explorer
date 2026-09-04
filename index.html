@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orkut?</title>
+    <meta name="description" content="Busque usuários do GitHub e veja seus repositórios públicos." />
+    <link rel="icon" href="./assets/favicon.ico" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <header>
+      <section id="navtabs">
+        <div id="logo">
+          <img src="./assets/orkut-logo.png" alt="logo" />
+        </div>
+        <div class="nav-form">
+          <nav>
+            <a>Início</a>
+            <a>Perfil</a>
+            <a>Página de recados</a>
+            <a>Amigos</a>
+            <a>Comunidades</a>
+          </nav>
+          <form id="search-form" class="search-form" novalidate>
+            <div class="search-form__row">
+              <input
+                type="text"
+                id="username-input"
+                name="username"
+                class="search-form__input"
+                placeholder="Buscar pessoas..."
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                required
+              />
+            </div>
+          </form>
+        </div>
+      </section>
+    </header>
+    <main id="wrapper">
+      <aside id="sidebar">
+        <section id="loadbox_img-card" aria-live="polite" aria-atomic="true"></section>
+        <section class="box" id="info-box">
+          <div class="box-title">Histórico de buscas</div>
+          <div class="box-body main-history history" aria-labelledby="history-heading">
+              <ul id="history-list" class="history__list info-list">
+                <li class="history__empty">Nenhuma busca realizada.</li>
+              </ul>
+              <div class="history__header">
+                <button type="button" id="clear-history" class="button button--ghost">
+                  Limpar histórico
+                </button>
+              </div>
+          </div>
+        </section>
+      </aside>
+      <section id="main">
+        <div class="box">
+          <div id="loadbox_info-card" aria-live="polite" aria-atomic="true"></div>
+        </div>
+        <section id="result" class="result" aria-live="polite" aria-atomic="true">
+          <p class="result__empty">...</p>
+        </section>
+      </section>
+      <aside>
+        <div id="loadbox_followers-card" aria-live="polite" aria-atomic="true"></div>
+        <div id="loadbox_repo-card" aria-live="polite" aria-atomic="true"></div>
+      </aside>
+    </main>
+    <footer class="site-footer">
+      <p>Copyright © 2004</p>
+    </footer>
+
+    <div>
+      <template id="template-loading">
+        <p class="state state--loading" role="status">
+          Buscando usuário...
+        </p>
+      </template>
+
+      <template id="template-not-found">
+        <p class="state state--error" role="alert">
+          Usuário não encontrado. Confira o nome digitado e tente novamente.
+        </p>
+      </template>
+
+      <template id="template-rate-limit">
+        <p class="state state--warning" role="alert">
+          <span>Limite de requisições da API do GitHub atingido. Tente novamente às <time id="rate-limit-time"></time>.</span>
+        </p>
+      </template>
+
+      <template id="template-user-card">
+        <div class="box user-card" id="photo-box">
+          <div class="box-body">
+            <img src="" alt="">
+            <h2 class="user-card__name"></h2>
+            <div class="idade user-card__login"></div>
+          </div>
+        </div>
+      </template>
+
+      <template id="template-info-card">
+        <div class="info-card">
+          <h2 class="user-info__name"></h2>
+          <p><span>Início</span> > Meu perfil</p>
+          <div class="user-bio">
+            <p class="user-info__bio"></p>
+          </div>
+          <div>
+            <img src="./assets/img_01.png" alt="Qualidades" />
+            <img src="./assets/img_02.png" alt="Qualidades" />
+          </div>
+        </div>
+      </template>
+
+      <template id="template-user-repo">
+        <div class="box user-repo" id="comunidades-box">
+          <div class="box-title">Repositórios públicos <span class="stat-repos"></span></div>
+          <ul class="lista-com"></ul>
+        </div>
+      </template>
+
+      <template id="template-user-followers">
+        <div class="box user-followers" id="amigos-box">
+          <div class="box-title">Seguidores <span class="stat-followers"></span></div>
+          <div class="amigos-grid">
+          </div>
+        </div>
+      </template>
+
+      <template id="template-history-item">
+        <li class="history__item">
+          <span class="label history__item-link"></span>
+          <time class="history__item-time"></time>
+        </li>
+      </template>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
