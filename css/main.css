@@ -227,7 +227,7 @@ header {
   border: 1px solid #c6d4e8;
 }
 
-@media (width <= 64rem) {
+@media (width <= 48rem) {
   #navtabs nav {
     display: none;
   }
