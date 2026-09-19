@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <header>
-      <section id="navtabs">
-        <div id="logo">
-          <img src="./assets/orkut-logo.png" alt="logo" />
+    <header class="header">
+      <section id="navtabs" class="header__inner">
+        <div id="logo" class="header__brand">
+          <img class="header__brand-img" src="./assets/orkut-logo.png" alt="logo" />
         </div>
-        <div class="nav-form">
-          <nav>
-            <a>Início</a>
-            <a>Perfil</a>
-            <a>Página de recados</a>
-            <a>Amigos</a>
-            <a>Comunidades</a>
+        <div class="header__nav-wrapper">
+          <nav class="header__nav">
+            <a class="header__nav-link">Início</a>
+            <a class="header__nav-link">Perfil</a>
+            <a class="header__nav-link">Página de recados</a>
+            <a class="header__nav-link">Amigos</a>
+            <a class="header__nav-link">Comunidades</a>
           </nav>
           <form id="search-form" class="search-form" novalidate>
             <div class="search-form__row">
@@ -40,32 +40,32 @@
         </div>
       </section>
     </header>
-    <main id="wrapper">
-      <aside id="sidebar">
+    <main id="wrapper" class="layout">
+      <aside id="sidebar" class="layout__sidebar">
         <section id="loadbox_img-card" aria-live="polite" aria-atomic="true"></section>
-        <section class="box" id="info-box">
-          <div class="box-title">Histórico de buscas</div>
-          <div class="box-body main-history history" aria-labelledby="history-heading">
-              <ul id="history-list" class="history__list info-list">
+        <section class="card history" id="info-box">
+          <div class="card__title">Histórico de buscas</div>
+          <div class="card__body">
+              <ul id="history-list" class="history__list">
                 <li class="history__empty">Nenhuma busca realizada.</li>
               </ul>
-              <div class="history__header">
-                <button type="button" id="clear-history" class="button button--ghost">
+              <div class="history__footer">
+                <button type="button" id="clear-history" class="button button--ghost history__clear">
                   Limpar histórico
                 </button>
               </div>
           </div>
         </section>
       </aside>
-      <section id="main">
-        <div class="box">
+      <section id="main" class="layout__main">
+        <div class="card">
           <div id="loadbox_info-card" aria-live="polite" aria-atomic="true"></div>
         </div>
         <section id="result" class="result" aria-live="polite" aria-atomic="true">
           <p class="result__empty">...</p>
         </section>
       </section>
-      <aside>
+      <aside class="layout__aside">
         <div id="loadbox_followers-card" aria-live="polite" aria-atomic="true"></div>
         <div id="loadbox_repo-card" aria-live="polite" aria-atomic="true"></div>
       </aside>
@@ -94,47 +94,47 @@
       </template>
 
       <template id="template-user-card">
-        <div class="box user-card" id="photo-box">
-          <div class="box-body">
-            <img src="" alt="">
+        <div class="card user-card" id="photo-box">
+          <div class="card__body user-card__body">
+            <img class="user-card__img" src="" alt="">
             <h2 class="user-card__name"></h2>
-            <div class="idade user-card__login"></div>
+            <div class="user-card__login"></div>
           </div>
         </div>
       </template>
 
       <template id="template-info-card">
         <div class="info-card">
-          <h2 class="user-info__name"></h2>
-          <p><span>Início</span> > Meu perfil</p>
-          <div class="user-bio">
-            <p class="user-info__bio"></p>
+          <h2 class="info-card__name"></h2>
+          <p class="info-card__breadcrumb"><span class="info-card__breadcrumb-highlight">Início</span> > Meu perfil</p>
+          <div class="info-card__bio">
+            <p class="info-card__bio-text"></p>
           </div>
-          <div>
-            <img src="./assets/img_01.png" alt="Qualidades" />
-            <img src="./assets/img_02.png" alt="Qualidades" />
+          <div class="info-card__badges">
+            <img class="info-card__badge" src="./assets/img_01.png" alt="Qualidades" />
+            <img class="info-card__badge" src="./assets/img_02.png" alt="Qualidades" />
           </div>
         </div>
       </template>
 
       <template id="template-user-repo">
-        <div class="box user-repo" id="comunidades-box">
-          <div class="box-title">Repositórios públicos <span class="stat-repos"></span></div>
-          <ul class="lista-com"></ul>
+        <div class="card repo-list" id="comunidades-box">
+          <div class="card__title">Repositórios públicos <span class="repo-list__count"></span></div>
+          <ul class="repo-list__items"></ul>
         </div>
       </template>
 
       <template id="template-user-followers">
-        <div class="box user-followers" id="amigos-box">
-          <div class="box-title">Seguidores <span class="stat-followers"></span></div>
-          <div class="amigos-grid">
+        <div class="card followers-grid" id="amigos-box">
+          <div class="card__title">Seguidores <span class="followers-grid__count"></span></div>
+          <div class="followers-grid__items">
           </div>
         </div>
       </template>
 
       <template id="template-history-item">
         <li class="history__item">
-          <span class="label history__item-link"></span>
+          <span class="history__item-label"></span>
           <time class="history__item-time"></time>
         </li>
       </template>
