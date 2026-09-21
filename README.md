@@ -1,4 +1,4 @@
-# Orkut? (ainda escolhendo um nome para o projeto...)
+# [Orkut?](https://thyeris.github.io/github-user-explorer/) (ainda escolhendo um nome para o projeto...)
 
 Um mini "buscador de usuários do GitHub" com a cara do Orkut antigo. Você digita
 um usuário e o app mostra a foto, bio, repositórios públicos e seguidores dele,
