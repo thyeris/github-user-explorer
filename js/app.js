@@ -46,6 +46,13 @@ function renderRateLimit(resetTimestamp) {
   }
 }
 
+function clearUserData() {
+  document.getElementById('loadbox_img-card').replaceChildren();
+  document.getElementById('loadbox_info-card').replaceChildren();
+  document.getElementById('loadbox_repo-card').replaceChildren();
+  document.getElementById('loadbox_followers-card').replaceChildren();
+}
+
 function renderGenericError() {
   result.replaceChildren();
   const message = document.createElement('p');
@@ -65,8 +72,6 @@ function renderUser(user) {
   article.querySelector('.user-card__name').textContent = user.name || user.login;
   article.querySelector('.user-card__login').textContent = `@${user.login}`;
 
-  //console.log(user)
-  /* ------------------------------------------------------------------------------------------ */
   renderTemplate('template-user-repo', 'loadbox_repo-card');
   const article2 = document.getElementById('loadbox_repo-card').querySelector('.repo-list');
   article2.querySelector('.repo-list__count').textContent = user.public_repos;
@@ -74,7 +79,6 @@ function renderUser(user) {
     renderRepos(user.login);
   }
 
-  /* ------------------------------------------------------------------------------------------ */
   renderTemplate('template-user-followers', 'loadbox_followers-card');
   const article3 = document.getElementById('loadbox_followers-card').querySelector('.followers-grid');
   article3.querySelector('.followers-grid__count').textContent = user.followers;
@@ -82,7 +86,6 @@ function renderUser(user) {
     renderFollowers(user.login);
   }
   
-  /* ------------------------------------------------------------------------------------------ */
   renderTemplate('template-info-card', 'loadbox_info-card');
   const article4 = document.getElementById('loadbox_info-card').querySelector('.info-card');
   article4.querySelector('.info-card__name').textContent = user.name;
@@ -180,6 +183,8 @@ async function handleSearch(username, salvarNoHistorico = true) {
     if (numeroDestaBusca !== numeroDaUltimaBusca) {
       return;
     }
+
+    clearUserData();
 
     if (error.usuarioNaoEncontrado) {
       renderNotFound();
