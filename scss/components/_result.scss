@@ -1,0 +1,20 @@
+@use "../abstracts" as *;
+
+.result {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__empty {
+    background-color: $color-white;
+    padding: 15px;
+    width: 80%;
+    text-align: center;
+    color: #426096;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid $color-border;
+  }
+}

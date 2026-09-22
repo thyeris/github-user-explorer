@@ -1,0 +1,14 @@
+@use "../abstracts" as *;
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $color-text;
+  background: $color-bg url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23e8eef7'/%3E%3Cpath d='M0 0L4 4ZM4 0L0 4Z' stroke='%23dde6f2' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+}

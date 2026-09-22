@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+
+.repo-list {
+  &__items {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    display: grid;
+    gap: 6px;
+    max-height: 200px;
+    overflow-x: scroll;
+    align-content: start;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  &__item-inner {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__item-icon {
+    width: 32px;
+    height: 32px;
+    background: $color-icon-bg;
+    border: 1px solid $color-border;
+    flex-shrink: 0;
+    color: $color-icon-text;
+  }
+}

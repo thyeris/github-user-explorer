@@ -68,16 +68,16 @@ function renderUser(user) {
   //console.log(user)
   /* ------------------------------------------------------------------------------------------ */
   renderTemplate('template-user-repo', 'loadbox_repo-card');
-  const article2 = document.getElementById('loadbox_repo-card').querySelector('.user-repo');
-  article2.querySelector('.stat-repos').textContent = user.public_repos;
+  const article2 = document.getElementById('loadbox_repo-card').querySelector('.repo-list');
+  article2.querySelector('.repo-list__count').textContent = user.public_repos;
   if (user.public_repos > 0) {
     renderRepos(user.login);
   }
 
   /* ------------------------------------------------------------------------------------------ */
   renderTemplate('template-user-followers', 'loadbox_followers-card');
-  const article3 = document.getElementById('loadbox_followers-card').querySelector('.user-followers');
-  article3.querySelector('.stat-followers').textContent = user.followers;
+  const article3 = document.getElementById('loadbox_followers-card').querySelector('.followers-grid');
+  article3.querySelector('.followers-grid__count').textContent = user.followers;
   if (user.public_repos > 0) {
     renderFollowers(user.login);
   }
@@ -85,22 +85,22 @@ function renderUser(user) {
   /* ------------------------------------------------------------------------------------------ */
   renderTemplate('template-info-card', 'loadbox_info-card');
   const article4 = document.getElementById('loadbox_info-card').querySelector('.info-card');
-  article4.querySelector('.user-info__name').textContent = user.name;
-  article4.querySelector('.user-info__bio').textContent = user.bio;
+  article4.querySelector('.info-card__name').textContent = user.name;
+  article4.querySelector('.info-card__bio-text').textContent = user.bio;
 }
 
 async function renderRepos(user) {
   const repos = await getRepos(user);
-  const article = document.getElementById('loadbox_repo-card').querySelector('.user-repo');
+  const article = document.getElementById('loadbox_repo-card').querySelector('.repo-list');
   for (const repo of repos) {
-    article.querySelector('.lista-com').innerHTML += `
-      <li>
+    article.querySelector('.repo-list__items').innerHTML += `
+      <li class="repo-list__item">
         <a href="${repo.html_url}" target="_blank">
-          <div class="repo-div">
-            <div class="com-icon">
+          <div class="repo-list__item-inner">
+            <div class="repo-list__item-icon">
               <svg data-component="Octicon" aria-hidden="true" focusable="false" class="octicon octicon-mark-github" viewBox="0 0 24 24" width="32" height="32" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom"><path d="M10.226 17.284c-2.965-.36-5.054-2.493-5.054-5.256 0-1.123.404-2.336 1.078-3.144-.292-.741-.247-2.314.09-2.965.898-.112 2.111.36 2.83 1.01.853-.269 1.752-.404 2.853-.404 1.1 0 1.999.135 2.807.382.696-.629 1.932-1.1 2.83-.988.315.606.36 2.179.067 2.942.72.854 1.101 2 1.101 3.167 0 2.763-2.089 4.852-5.098 5.234.763.494 1.28 1.572 1.28 2.807v2.336c0 .674.561 1.056 1.235.786 4.066-1.55 7.255-5.615 7.255-10.646C23.5 6.188 18.334 1 11.978 1 5.62 1 .5 6.188.5 12.545c0 4.986 3.167 9.12 7.435 10.669.606.225 1.19-.18 1.19-.786V20.63a2.9 2.9 0 0 1-1.078.224c-1.483 0-2.359-.808-2.987-2.313-.247-.607-.517-.966-1.034-1.033-.27-.023-.359-.135-.359-.27 0-.27.45-.471.898-.471.652 0 1.213.404 1.797 1.235.45.651.921.943 1.483.943.561 0 .92-.202 1.437-.719.382-.381.674-.718.944-.943"></path></svg>
             </div>
-            <span>${repo.name}</span>
+            <span class="repo-list__item-name">${repo.name}</span>
           </div>
         </a>
       </li>
@@ -110,13 +110,13 @@ async function renderRepos(user) {
 
 async function renderFollowers(user) {
   const repos = await getFollowers(user);
-  const article = document.getElementById('loadbox_followers-card').querySelector('.user-followers');
+  const article = document.getElementById('loadbox_followers-card').querySelector('.followers-grid');
   for (const repo of repos) {
-    article.querySelector('.amigos-grid').innerHTML += `
+    article.querySelector('.followers-grid__items').innerHTML += `
       <a href="${repo.html_url}" target="_blank">
-        <div class="amigo">
-          <img src="${repo.avatar_url}" alt="Seguidor">
-          <span>${repo.login}</span>
+        <div class="followers-grid__item">
+          <img class="followers-grid__item-img" src="${repo.avatar_url}" alt="Seguidor">
+          <span class="followers-grid__item-name">${repo.login}</span>
         </div>
       </a>
     `;
@@ -141,7 +141,7 @@ function renderHistory() {
   for (const item of items) {
     const clone = template.content.cloneNode(true);
     const date = new Date(item.searchedAt);
-    const linkButton = clone.querySelector('.history__item-link');
+    const linkButton = clone.querySelector('.history__item-label');
     linkButton.textContent = item.username;
     linkButton.addEventListener('click', () => {
       input.value = item.username;
