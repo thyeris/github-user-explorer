@@ -1,0 +1,26 @@
+@use "../abstracts" as *;
+
+.user-card {
+  &__body {
+    padding: 12px;
+  }
+
+  &__img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border: 1px solid $color-border-light;
+    padding: 3px;
+    background: $color-white;
+  }
+
+  &__name {
+    margin: 8px 0 2px;
+    font-size: 15px;
+    color: $color-accent;
+  }
+
+  &__login {
+    color: $color-text-muted;
+  }
+}

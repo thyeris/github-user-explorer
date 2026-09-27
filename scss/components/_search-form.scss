@@ -1,0 +1,12 @@
+@use "../abstracts" as *;
+
+.search-form {
+  padding: 5px;
+
+  &__input {
+    border: 1px solid $color-border-light;
+    padding: 4px 6px;
+    width: 220px;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+.button {
+  background-color: $color-card-title-bg;
+  color: $color-title;
+  font-weight: bold;
+  font-size: 11px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid $color-border;
+  cursor: pointer;
+
+  &--ghost {
+  }
+}

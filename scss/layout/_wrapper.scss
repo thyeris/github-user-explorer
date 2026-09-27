@@ -1,0 +1,28 @@
+@use "../abstracts" as *;
+
+.layout {
+  max-width: $content-max-width;
+  margin: 14px auto;
+  display: flex;
+  gap: 12px;
+  padding: 0 12px;
+
+  &__sidebar {
+    width: fit-content;
+    flex-shrink: 0;
+  }
+
+  &__main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @media (width <= $breakpoint-mobile) {
+    flex-direction: column;
+
+    &__sidebar {
+      display: flex;
+      gap: 10px;
+    }
+  }
+}

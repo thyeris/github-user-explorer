@@ -1,0 +1,25 @@
+@use "../abstracts" as *;
+
+.card {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  margin-bottom: 12px;
+
+  &__title {
+    background: $color-card-title-bg;
+    border-bottom: 1px solid $color-border;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: $color-title;
+    font-size: 12px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  &__body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+}

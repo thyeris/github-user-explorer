@@ -1,0 +1,28 @@
+@use "../abstracts" as *;
+
+.info-card {
+  padding: 12px;
+
+  &__name {
+    margin: 0;
+    font-size: 25px;
+  }
+
+  &__breadcrumb {
+    color: $color-text-muted;
+  }
+
+  &__breadcrumb-highlight {
+    color: $color-accent-light;
+  }
+
+  &__bio {
+    color: $color-accent-light;
+    border: 1px solid rgba($color-border-light, 0.4);
+    padding: 8px;
+  }
+
+  &__bio-text {
+    margin: 0;
+  }
+}

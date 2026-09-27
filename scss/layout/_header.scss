@@ -1,0 +1,52 @@
+@use "../abstracts" as *;
+
+.header {
+  background-color: $color-primary;
+
+  &__inner {
+    display: flex;
+    padding: 0 15px;
+    max-width: $content-max-width;
+    margin: 0 auto;
+  }
+
+  &__brand {
+    background: #fef4fc;
+    background: linear-gradient(180deg, rgba(254, 244, 252, 1) 0%, rgba(207, 207, 207, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 15px;
+  }
+
+  &__brand-img {
+    width: 40px;
+    height: fit-content;
+  }
+
+  &__nav-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 15px;
+    padding: 0 15px;
+  }
+
+  &__nav-link {
+    color: $color-white;
+    font-size: 11px;
+    border-right: 1px solid $color-nav-border;
+    cursor: pointer;
+  }
+
+  @media (width <= $breakpoint-mobile) {
+    &__nav {
+      display: none;
+    }
+  }
+}
